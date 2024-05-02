@@ -1,8 +1,8 @@
-"""Store Monster Card v1
-Stored all the existing monster card details
-into a dictionary
+"""Store Monster Card v3
+Testing a dictionary's function/ability
+to read data
 """
-# Trial 1 = Dictionary Storage
+# Trial 1 Part 1 = Dictionary Storage
 monster_card_dict = {
     "Stoneling": {
         "Strength": 7,
@@ -65,4 +65,10 @@ monster_card_dict = {
         "Cunning": 2
     }
 }
-print(monster_card_dict)
+# Trial 1 Part 2 = Read all details from a dictionary
+print("\nTrial 1 Part 2 = Reading Information on Dictionary:")
+for monster_card_name in monster_card_dict:
+    monster_card_catalogue = monster_card_dict[monster_card_name]
+    for monster_card_stats in monster_card_catalogue:
+        print(monster_card_name, monster_card_stats,
+              monster_card_catalogue[monster_card_stats])

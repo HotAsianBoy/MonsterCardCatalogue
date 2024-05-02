@@ -1,8 +1,8 @@
-"""Store Monster Card v2
-Stored all the existing monster card details
-into a list
+"""Store Monster Card Details v4
+Testing a list's functions/ability
+to read data
 """
-# Trial 2 = List Storage
+# Trial 2 Part 1 = List Storage
 monster_card_list = {
     "Stoneling": [
         ["Strength", 7],
@@ -65,4 +65,9 @@ monster_card_list = {
         ["Cunning", 2]
     ]
 }
-print(monster_card_list)
+# Trial 2 Part 2 = Read all details from a List
+print("\nTrial 2 Part 2 = Reading Information on List:")
+for monster_card_name in monster_card_list:
+    monster_card_catalogue = monster_card_list[monster_card_name]
+    for monster_card_stats in monster_card_catalogue:
+        print(monster_card_name, monster_card_stats[0], monster_card_stats[1])
