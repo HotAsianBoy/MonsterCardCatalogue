@@ -1,5 +1,5 @@
 """Store Monster Card v1
-Store all the existing monster card details
+Stored all the existing monster card details
 into a dictionary
 """
 monster_card_dict = {
