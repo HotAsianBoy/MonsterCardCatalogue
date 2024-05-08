@@ -1,6 +1,6 @@
 """Store Monster Card Details v4
 Testing a list's functions/ability
-to read data
+to read data hi
 """
 # Trial 2 Part 1 = List Storage
 monster_card_list = {
