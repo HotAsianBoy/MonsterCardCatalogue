@@ -33,19 +33,19 @@ def add_monster_card(catalogue):
                                    "Please enter a numerical value.")
 
         # Display the monster card details
-        easygui.msgbox("\nNew Monster Card Details:")
+        easygui.msgbox("\nNew Monster Card Details:\n\n")
         easygui.msgbox(f"Name: {monster_card_name}")
         for key, value in attributes.items():
             easygui.msgbox(f"{key}: {value}")
 
         # Confirm the details with the user
-        is_correct = easygui.enterbox("Is this information correct?"
-                                      " (yes/no): ").lower()
-        if is_correct == 'yes':
+        is_correct = easygui.buttonbox("Is this information correct?",
+                                       choices=["Yes", "No"]).lower()
+        if is_correct == 'Yes':
             catalogue[monster_card_name] = attributes
             easygui.msgbox(f"Congratulations!"
-                           f" {monster_card_name} has been added"
-                  f" to the catalogue!")
+                           f" {monster_card_name} has been added "
+                  f"to the catalogue!")
             break
         else:
             easygui.msgbox("Okay, let's try entering the "
