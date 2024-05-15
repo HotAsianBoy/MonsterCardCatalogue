@@ -1,6 +1,7 @@
 """Search Monster Card v2
 Stores the existing monster card names in buttons
-for the user to select"""
+for the user to select
+"""
 
 
 from easygui import buttonbox
@@ -70,7 +71,8 @@ monster_catalogue = {
 # Trial 2 = Use Easygui Buttonbox
 while True:
     choices = list(monster_catalogue.keys())
-    choice = buttonbox("Choose a monster card to view its details:", choices=choices)
+    choice = buttonbox("Choose a monster card to view its details:"
+                       "", choices=choices)
 
     if choice:
         details = ""
