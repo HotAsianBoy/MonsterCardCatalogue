@@ -68,7 +68,7 @@ monster_catalogue = {
 }
 
 
-def edit_monster_card(monster_catalogue):
+def edit_monster_card(catalogue):
     while True:
         monster_names = list(monster_catalogue.keys())
         if not monster_names:
@@ -124,3 +124,13 @@ def edit_monster_card(monster_catalogue):
                                  "monster card?", "Continue Editing?",
                                  ["Yes", "No"]):
                 break
+
+
+edit_monster_card(monster_catalogue)
+formatted_catalogue = "Current Monster Catalogue:\n"
+for monster, details in monster_catalogue.items():
+    formatted_catalogue += f"\n{monster}:\n"
+    for attribute, value in details:
+        formatted_catalogue += f"{attribute}: {value}\n"
+formatted_catalogue = formatted_catalogue.strip()
+easygui.msgbox(formatted_catalogue, title="Monster Catalogue")
