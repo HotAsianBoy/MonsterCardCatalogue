@@ -1,5 +1,7 @@
 """Edit Monster Card v4
-Add a definitive function under the functioning code
+Add a definitive function under the functioning code and
+prints out the card catalogue in a neat format
+before exiting
 """
 import easygui
 
