@@ -70,6 +70,7 @@ monster_catalogue = {
 }
 
 
+# Function to edit a monster card using EASYGUI
 def edit_monster_card(catalogue):
     while True:
         monster_names = list(monster_catalogue.keys())
@@ -128,6 +129,7 @@ def edit_monster_card(catalogue):
                 break
 
 
+# Code to print out the catalogue before exiting program
 edit_monster_card(monster_catalogue)
 formatted_catalogue = "Current Monster Catalogue:\n"
 for monster, details in monster_catalogue.items():

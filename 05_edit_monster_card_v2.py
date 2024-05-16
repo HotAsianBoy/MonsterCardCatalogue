@@ -68,6 +68,8 @@ monster_catalogue = {
     ]
 }
 
+
+# Function to edit a monster card using EASYGUI
 while True:
     monster_names = list(monster_catalogue.keys())
     if not monster_names:
