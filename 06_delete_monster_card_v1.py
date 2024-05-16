@@ -1,6 +1,6 @@
 """Delete Monster Card v1
 Allows the user to delete an existing monster
-card from the catalogue
+card from the catalogue using a buttonbox
 """
 import easygui
 # Storing Monster Details
@@ -68,7 +68,7 @@ monster_catalogue = {
 }
 
 
-# Function to delete a monster card using EASYGUI
+# Trial 1 = Using an Easygui Buttonbox
 def delete_monster_card(catalogue):
     while True:
         if not catalogue:

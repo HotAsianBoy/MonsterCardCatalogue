@@ -1,8 +1,7 @@
-"""Delete Monster Card v4
-Fixes error where if the user doesn't want to delete
-any more monster cards, the code prints out
-the edited catalogue before
-exiting program
+"""Delete Monster Card v5
+Fixed error of printing statements without easygui,
+as well as printing out the edited catalogue in one
+print before exiting program
 """
 import easygui
 # Storing Monster Details
@@ -70,16 +69,18 @@ monster_catalogue = {
 }
 
 
-# Function to print out edited catalogue before exiting program
-def print_catalogue(catalogue):
+# Function to display the edited monster card catalogue
+def show_catalogue(catalogue):
+    catalogue_message = ""
     for monster, attributes in catalogue.items():
-        easygui.msgbox(f"{monster}:")
+        catalogue_message += f"{monster}:\n"
         for attr in attributes:
-            easygui.msgbox(f"  {attr[0]}: {attr[1]}")
-        easygui.msgbox()
+            catalogue_message += f"  {attr[0]}: {attr[1]}\n"
+        catalogue_message += "\n"
+    easygui.msgbox(catalogue_message, title="Edited Monster Card Catalogue")
 
 
-# Function to delete monster card from the catalogue using EASYGUI
+# Function to delete monster card from the catalogue using Easygui
 def delete_monster_card(catalogue):
     while True:
         if not catalogue:
@@ -96,8 +97,7 @@ def delete_monster_card(catalogue):
                                        choices=monster_names)
 
             if choice == "Cancel":
-                print("Final catalogue before exiting:")
-                print_catalogue(catalogue)
+                show_catalogue(catalogue)
                 return
 
             monster_details = catalogue[choice]
@@ -118,14 +118,12 @@ def delete_monster_card(catalogue):
                 if not easygui.ynbox("Do you want to delete more monster "
                                      "cards?", "Continue Deleting?",
                                      ["Yes", "No"]):
-                    print("Final catalogue after deletions:")
-                    print_catalogue(catalogue)
+                    show_catalogue(catalogue)
                     return
             else:
-                print("User cancelled the deletion. Returning to the "
-                      "selection.")
+                easygui.msgbox("User cancelled the deletion. "
+                               "Returning to the selection.")
 
 
 # Example usage
 delete_monster_card(monster_catalogue)
-

@@ -1,9 +1,9 @@
 """Delete Monster Card v2
-Fixed error where if the user does not want to delete a monster card,
-the code re-loops back to the deleting monster question
-instead of exiting the program
-"""
+Allows the user to delete monster cards from the
+catalogue using an enterbox"""
 import easygui
+
+
 # Storing Monster Details
 monster_catalogue = {
     "Stoneling": [
@@ -69,57 +69,32 @@ monster_catalogue = {
 }
 
 
-# Function to print out the catalogue before exiting
-def print_catalogue(catalogue):
-    for monster, attributes in catalogue.items():
-        print(f"{monster}:")
-        for attr in attributes:
-            print(f"  {attr[0]}: {attr[1]}")
-        print()
+# Trial 2 = Using an Easygui Enterbox
+def show_monster_details(catalogue, monster_name):
+    if monster_name in catalogue:
+        details = catalogue[monster_name]
+        details_message = f"Monster: {monster_name}\n"
+        for attr in details:
+            details_message += f"{attr[0]}: {attr[1]}\n"
+        return easygui.ynbox(details_message, title="Monster Card Details",
+                             choices=["Delete", "Cancel"])
+    else:
+        easygui.msgbox("Monster card not found in the catalogue.",
+                       title="Error")
+        return False
 
 
-# Function to delete a monster card using EASYGUI
-def delete_monster_card(catalogue):
-    while True:
-        if not catalogue:
-            easygui.msgbox("No monster cards left in the catalogue.",
-                           "Catalogue Empty")
-            break
+# Get the monster card name from the user
+monster_name = easygui.enterbox("Enter the name of the monster card to "
+                                "delete: ", title="Monster Card Deletion")
 
-        monster_names = list(catalogue.keys())
-        monster_names.append("Cancel")
-        choice = easygui.buttonbox("Select a monster card to delete or "
-                                   "Cancel to exit:",
-                                   "Delete Monster Card",
-                                   choices=monster_names)
+# Double check if the user wants to delete the entered monster card
+confirmation = show_monster_details(monster_catalogue, monster_name)
 
-        if choice == "Cancel":
-            print("Final catalogue before exiting:")
-            print_catalogue(catalogue)
-            break
-
-        monster_details = catalogue[choice]
-        details_message = f"Name: {choice}\n" + "\n".join([f"{attr[0]}: "
-                                                           f"{attr[1]}" for
-                                                           attr in
-                                                           monster_details])
-        confirm_delete = easygui.ynbox(f"Are you sure you want to delete this "
-                                       f"monster card?\n{details_message}",
-                                       "Confirm Delete")
-        # If the user confirms the deletion
-        if confirm_delete:
-            del catalogue[choice]
-            easygui.msgbox(f"Monster card '{choice}' has been deleted.",
-                           "Deleted Successfully")
-            if not easygui.ynbox("Do you want to delete more monster cards?",
-                                 "Continue Deleting?", ["Yes", "No"]):
-                print("Final catalogue after deletions:")
-                print_catalogue(catalogue)
-                break
-        else:
-            print("User cancelled the deletion. Returning to the selection.")
-            continue
-
-
-# Example usage
-delete_monster_card(monster_catalogue)
+if confirmation:
+    del monster_catalogue[monster_name]
+    easygui.msgbox(f"The monster card '{monster_name}' has been deleted.",
+                   title="Deleted Successfully")
+else:
+    easygui.msgbox("Deletion cancelled. The monster card has not been deleted."
+                   "", title="Deletion Cancelled")
