@@ -1,6 +1,7 @@
 """Delete Monster Card v2
 Allows the user to delete monster cards from the
-catalogue using an enterbox"""
+catalogue using an enterbox
+"""
 import easygui
 
 
