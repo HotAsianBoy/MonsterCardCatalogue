@@ -4,6 +4,7 @@ the user to add a new monster card to the catalogue
 """
 import easygui
 
+
 # Add a new monster card to the catalogue
 def add_monster_card(catalogue):
     while True:

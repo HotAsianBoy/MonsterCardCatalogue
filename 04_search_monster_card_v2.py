@@ -73,12 +73,10 @@ while True:
     choices = list(monster_catalogue.keys())
     choice = buttonbox("Choose a monster card to view its details:"
                        "", choices=choices)
-
     if choice:
         details = ""
         for attribute in monster_catalogue[choice]:
             details += f"{attribute[0]}: {attribute[1]}\n"
         buttonbox(msg=details, title=choice + " Details", choices=["OK"])
-
     else:
         break

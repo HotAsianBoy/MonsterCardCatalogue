@@ -20,7 +20,8 @@ def add_new_monster_card(catalogue):
         # ensuring they are within the allowed range
         for attribute in ["Strength", "Speed", "Stealth", "Cunning"]:
             value = easygui.integerbox(
-                f"Please enter the value for {attribute} (1-25):", lowerbound=1,
+                f"Please enter the value for {attribute} (1-25):",
+                lowerbound=1,
                 upperbound=25, title="Attribute Input")
             if value is None:
                 valid_input = False

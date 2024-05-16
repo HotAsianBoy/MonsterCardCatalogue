@@ -74,7 +74,7 @@ while True:
     choices.append("Cancel")
     choice = buttonbox("Choose a monster card to view its details:"
                        "", choices=choices)
-
+    # If user decides to cancel
     if choice == "Cancel":
         break
     elif choice:

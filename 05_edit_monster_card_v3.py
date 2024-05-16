@@ -1,5 +1,5 @@
 """Edit Monster Card v3
-Added the values of the attribute of monster card
+Added the values of the attributes of monster card
 before being edited to improve usability, and to check if the
 changes are saved
 """
