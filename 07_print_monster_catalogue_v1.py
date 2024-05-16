@@ -1,10 +1,11 @@
 """Print Monster Catalogue v1
 Allows the user to print the monster catalogue
 """
-
 import easygui
 
-monster_card_list = {
+
+# Storing Monster Details
+monster_catalogue = {
     "Stoneling": [
         ["Strength", 7],
         ["Speed", 1],
@@ -68,16 +69,19 @@ monster_card_list = {
 }
 
 
+# Function to print the monster card catalogue
 def print_catalogue():
-    output = "🐲 𝕸𝖔𝖓𝖘𝖙𝖊𝖗 𝕮𝖆𝖗𝖉 𝕮𝖆𝖙𝖆𝖑𝖔𝖌 🐉\n\n"
+    output = "𝓜𝓸𝓷𝓼𝓽𝓮𝓻 𝓒𝓪𝓻𝓭 𝓒𝓪𝓽𝓪𝓵𝓸𝓰:\n\n"
 
-    for monster, attributes in monster_card_list.items():
-        output += f"🔸 {monster} 🔸\n"
+    for monster, attributes in monster_catalogue.items():
+        output += f"🐉 𝓜𝓸𝓷𝓼𝓽𝓮𝓻: {monster} 🐲\n"
         for attribute in attributes:
             output += f"• {attribute[0]}: {attribute[1]}\n"
         output += "\n"
 
-    easygui.buttonbox(output, "🐉 𝕸𝖔𝖓𝖘𝖙𝖊𝖗 𝕮𝖆𝖗𝖉 𝕮𝖆𝖙𝖆𝖑𝖔𝖌 🐲", choices=["OK"])
+    easygui.buttonbox(output, "𝓜𝓸𝓷𝓼𝓽𝓮𝓻 𝓒𝓪𝓻𝓭 𝓒𝓪𝓽𝓪𝓵𝓸𝓰", choices=["OK"])
 
 
+# Example Usage
 print_catalogue()
+
