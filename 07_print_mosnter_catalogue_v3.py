@@ -1,9 +1,9 @@
-"""Search Monster Card v3
-Added a cancel button which allows the user to cancel
-if necessary. Pressing this will exit the program
+"""Print Monster Catalogue v3
+Prints the monster catalogue attributes in a
+horizontal format
 """
+import easygui
 
-from easygui import buttonbox, msgbox
 
 # Storing Monster Details
 monster_catalogue = {
@@ -70,23 +70,18 @@ monster_catalogue = {
 }
 
 
-def search_monster_card(catalogue):
-    while True:
-        choices = list(monster_catalogue.keys())
-        choices.append("Cancel")
-        choice = buttonbox("Choose a monster card to view its details:"
-                           "", choices=choices)
-        # If user decides to cancel
-        if choice == "Cancel":
-            break
-        elif choice:
-            details = ""
-            for attribute in monster_catalogue[choice]:
-                details += f"{attribute[0]}: {attribute[1]}\n"
-            msgbox(details, title=choice + " Details")
-        else:
-            break
+# Function to print the monster card catalogue
+def print_catalogue():
+    output = "𝓜𝓸𝓷𝓼𝓽𝓮𝓻 𝓒𝓪𝓻𝓭 𝓒𝓪𝓽𝓪𝓵𝓸𝓰:\n\n"
+
+    for monster, attributes in monster_catalogue.items():
+        output += f"🐉 𝓜𝓸𝓷𝓼𝓽𝓮𝓻: {monster} 🐲"
+        for attribute in attributes:
+            output += f"• {attribute[0]}: {attribute[1]}"
+        output += "\n\n"
+
+    easygui.buttonbox(output, "𝓜𝓸𝓷𝓼𝓽𝓮𝓻 𝓒𝓪𝓻𝓭 𝓒𝓪𝓽𝓪𝓵𝓸𝓰", choices=["OK"])
 
 
 # Example Usage
-search_monster_card(monster_catalogue)
+print_catalogue()

@@ -84,4 +84,3 @@ def print_catalogue():
 
 # Example Usage
 print_catalogue()
-
