@@ -241,7 +241,8 @@ def print_catalogue():
 
 # Main loop
 while True:
-    message = "\n*** Welcome! What would you like to do today? ***\nOptions:"
+    message = "\n*** Welcome! What would you like to do today? ***\n" \
+              "                                 Options:"
     title = "Monster Catalogue"
     choices = [
         "Add New Monster Card",
