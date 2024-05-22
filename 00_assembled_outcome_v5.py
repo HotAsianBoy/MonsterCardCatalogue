@@ -68,6 +68,7 @@ monster_catalogue = {
 }
 
 
+# Function to allow the user to add a new monster card
 def add_monster_card(catalogue):
     fields = ["Name", "Strength", "Speed", "Stealth", "Cunning"]
     while True:
@@ -115,6 +116,7 @@ def add_monster_card(catalogue):
                 break
 
 
+# Function to allow the user to search for an existing monster card
 def search_monster_card():
     while True:
         monster_choices = list(monster_catalogue.keys())
@@ -227,6 +229,7 @@ def delete_monster_card(catalogue):
                        "Returning to the selection.")
 
 
+# Function to print the monster card catalogue
 def print_catalogue():
     output = "𝓜𝓸𝓷𝓼𝓽𝓮𝓻 𝓒𝓪𝓻𝓭 𝓒𝓪𝓽𝓪𝓵𝓸𝓰:\n\n"
 

@@ -70,6 +70,7 @@ monster_catalogue = {
 }
 
 
+# Function to allow the user to search for an existing monster card
 def search_monster_card(catalogue):
     while True:
         choices = list(monster_catalogue.keys())
