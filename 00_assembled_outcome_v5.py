@@ -4,6 +4,7 @@ Finished Outcome, edited to meet all PEP8 Requirements
 from easygui import buttonbox, \
     msgbox, ynbox, enterbox, choicebox, integerbox, multenterbox
 
+# Storing Monster Card Details
 monster_catalogue = {
     "Stoneling": [
         ["Strength", 7],
